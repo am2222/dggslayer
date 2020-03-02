@@ -190,7 +190,7 @@ dggsContinuousTileOptions <- function(max,min,resolution=NULL,colorScale=NULL, .
   opts
 }
 
-dggsNumericalTileOptions <- function(resolution=NULL,colorScale=NULL,geostat =list(avg=NULL,median=NULL,sum=NULL,max=NULL,min=NULL,variance=NULL,count=NULL), ...) {
+dggsNumericalTileOptions <- function(resolution=NULL,colorScale=NULL,geostat =NULL, ...) {
 
   opts <- filterNULL(list(
     resolution = resolution,colorScale=colorScale,geostat=geostat,

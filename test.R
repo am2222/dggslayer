@@ -8,9 +8,11 @@ if (file.exists(package)){
 
 devtools::build()
 
-# remove.packages("dggslayer",lib=.libPaths()[2])
-# remove.packages("dggslayer",lib=.libPaths()[1])
-# remove.packages("dggslayer")
+remove.packages("dggslayer",lib=.libPaths()[2])
+remove.packages("dggslayer",lib=.libPaths()[1])
+remove.packages("dggslayer")
+
+
 install.packages(package, lib=.libPaths()[2],repos = NULL, type="source")
 
 library(leaflet)
@@ -18,7 +20,8 @@ library(dggslayer)
 devtools::reload()
 m <- leaflet() %>%
   leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%>%
-  addMarkers(lng=-106.34, lat=56.13, popup="Canada")
+  addMarkers(lng=-106.34, lat=56.13, popup="Canada")%>%
+  addProviderTiles(providers$Thunderforest.MobileAtlas,options = tileOptions(apikey = '5c067b469722440ea2a21bfd5d70e27f'))
 
 nominalLayerOptions <-list(
   classNames=list(
@@ -43,7 +46,21 @@ nominalLayerOptions <-list(
   ))
 
 
+nominalLayerOptions <-list(
+  classNames=list(
+    c("class 0",0,"#006300"),
+    c("class 1", 1,"#006300"),
+    c("class 2", 2,"#148c3d"),
+    c("class 3", 3,"#1eab05"),
+    c("class 4", 4,"#5c752b"),
+    c("class 5", 5,"#bad48f"),
+    c("class 6", 6,"#b39e2b"),
+    c("class 7", 7,"#b38a33")
+    
+  ))
+
 m%>%addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003-01-01',group="nominalLayer",options = nominalLayerOptions)
+m%>%addNominalDGGSLayer(layer="CHANGE_CLASS1",group="nominalLayer",options = nominalLayerOptions)
 
 
 continuousLayerOptions <-list(
@@ -53,6 +70,6 @@ m%>%addContinuousDGGSLayer  (layer="cumsumData",filter="key='MAXTEMP_MAX'",group
 
 numericalLayerOptions <-list(
   colorScale=c("OrRd"))
-m%>%addNumericalDGGSLayer(layer="cumsumData",filter="key='MAXTEMP_MIN'",group="numericalLayer")
+m%>%addNumericalDGGSLayer(layer="cumsumData",filter="key='MAXTEMP_MIN'",group="numericalLayer",options = numericalLayerOptions)
 
 

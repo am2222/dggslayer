@@ -286,9 +286,11 @@ LeafletWidget.methods.addDGGSNominalProvider = function(layerName,tid,filter, la
 
   if(!options["resolution"]){
     var metadataurl=serverAddress+"/metadata/" + layerName + "?" + ((tid===null)?"": "tid=" + tid )+ ((filter===null)? "": "&filter=" + filter)
+    self.spin(true);
     getMetadata(metadataurl).then(result=>{
       data = result;
       addNominalDGGSLayer(options,result,layerName,layerId, group,self)
+      self.spin(false);
     })
 
   }else{
@@ -359,9 +361,11 @@ LeafletWidget.methods.addContinuousDGGSLayer = function(layerName,tid,filter, la
 
   if(!options["resolution"] || !max || !min){
     var metadataurl=serverAddress+"/metadata/" + layerName + "?" + ((tid===null)?"": "tid=" + tid )+ ((filter===null)? "": "&filter=" + filter)
+    self.spin(true);
     getMetadata(metadataurl).then(result=>{
       data = result;
       addContinuousDGGSLayer(options,result,layerName,layerId, group,self)
+      self.spin(false);
     })
 
   }else{
@@ -455,13 +459,13 @@ LeafletWidget.methods.addNumericalDGGSLayer = function(layerName,tid,filter, lay
   data.tileurl = "http://localhost:3000/mvt/"+layerName+"/{r}/vector/{z}/{x}/{y}.pbf?"+((!tid || tid==="") ? "": "tid=" + tid)+ ((!filter || filter==="") ? "": "&filter=" + filter);
 
   var self = this;
-  var avg = options["geostat"]["avg"] || null;
-  var median = options["geostat"]["median"] || null;
-  var sum = options["geostat"]["sum"] || null;
-  var max = options["geostat"]["max"] || null;
-  var min = options["geostat"]["min"] || null;
-  var variance = options["geostat"]["variance"] || null;
-  var count = options["geostat"]["count"] || null;
+  var avg = (options["geostat"] && options["geostat"]["avg"]) || null;
+  var median = (options["geostat"] && options["geostat"]["median"]) || null;
+  var sum = (options["geostat"] && options["geostat"]["sum"]) || null;
+  var max = (options["geostat"] && options["geostat"]["max"]) || null;
+  var min = (options["geostat"] && options["geostat"]["min"]) || null;
+  var variance =(options["geostat"] && options["geostat"]["variance"] )|| null;
+  var count =(options["geostat"] && options["geostat"]["count"] )|| null;
 
   if(!options["resolution"] || !max || !min || !avg || !median || !variance || !count){
     var metadataurl=serverAddress+"/metadata/" + layerName + "?" + ((tid===null)?"": "tid=" + tid )+ ((filter===null)? "": "&filter=" + filter)
