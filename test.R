@@ -8,9 +8,9 @@ if (file.exists(package)){
 
 devtools::build()
 
-remove.packages("dggslayer",lib=.libPaths()[2])
-remove.packages("dggslayer",lib=.libPaths()[1])
-remove.packages("dggslayer")
+#remove.packages("dggslayer",lib=.libPaths()[2])
+#remove.packages("dggslayer",lib=.libPaths()[1])
+#remove.packages("dggslayer")
 
 
 install.packages(package, lib=.libPaths()[2],repos = NULL, type="source")
@@ -20,7 +20,6 @@ library(dggslayer)
 devtools::reload()
 m <- leaflet() %>%
   leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%>%
-  addMarkers(lng=-106.34, lat=56.13, popup="Canada")%>%
   addProviderTiles(providers$Thunderforest.MobileAtlas,options = tileOptions(apikey = '5c067b469722440ea2a21bfd5d70e27f'))
 
 nominalLayerOptions <-list(
@@ -49,18 +48,28 @@ nominalLayerOptions <-list(
 nominalLayerOptions <-list(
   classNames=list(
     c("class 0",0,"#006300"),
-    c("class 1", 1,"#006300"),
+    c("class 1", 1,"#4c70a3"),
     c("class 2", 2,"#148c3d"),
-    c("class 3", 3,"#1eab05"),
-    c("class 4", 4,"#5c752b"),
+    c("class 3", 3,"#a8abae"),
+    c("class 4", 4,"#b38a33"),
     c("class 5", 5,"#bad48f"),
-    c("class 6", 6,"#b39e2b"),
-    c("class 7", 7,"#b38a33")
+    c("class 6", 6,"#949c70"),
+    c("class 7", 7,"#1eab05")
     
   ))
-
+nominalLayerOptions <-list(
+  classNames=list(
+    # c("class 0",0.0,"#006300"),
+    c("0.1", 0.1,"#1eab05"),
+    c("0.2", 0.2,"#FFC300"),
+    c("0.3", 0.3,"#FF5733"),
+    c("0.4", 0.4,"#C70039"),
+    c("0.5>=", 0.5,"#900C3F")
+    
+  ))
 m%>%addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003-01-01',group="nominalLayer",options = nominalLayerOptions)
 m%>%addNominalDGGSLayer(layer="CHANGE_CLASS1",group="nominalLayer",options = nominalLayerOptions)
+m%>%addNominalDGGSLayer(layer="MOTIFEL_JSD_PROD_PLOT2",group="nominalLayer",options = nominalLayerOptions)
 
 
 continuousLayerOptions <-list(

@@ -132,6 +132,15 @@ addContinuousDGGSLayer  <- function(
                layer,tid,filter, layerId, group, options)
 }
 
+changeServerAddress  <- function(
+  map,
+  address
+) {
+  map$dependencies <- c(map$dependencies, leafletDGGSProviderDependencies())
+  invokeMethod(map, getMapData(map), "changeServerAddress",address)
+}
+
+
 
 
 addNumericalDGGSLayer  <- function(

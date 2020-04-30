@@ -28,6 +28,12 @@ HTMLWidgets.widget({
 });
 
 let serverAddress="http://127.0.0.1:3000";
+LeafletWidget.methods.changeServerAddress = function(address) {
+  console.log("Server Address changed to "+address);
+  //let's make a dggs layer
+  serverAddress = address;
+
+};
 //define canada as bounds
 var corner1 = L.latLng(0, -180),
 	corner2 = L.latLng(85, 0),
