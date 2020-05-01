@@ -27,13 +27,13 @@ HTMLWidgets.widget({
   }
 });
 
-let serverAddress="http://127.0.0.1:3000";
-LeafletWidget.methods.changeServerAddress = function(address) {
+var serverAddress="http://127.0.0.1:3000";
+LeafletWidget.methods.setServerAddress = function(address) {
   console.log("Server Address changed to "+address);
-  //let's make a dggs layer
   serverAddress = address;
 
 };
+
 //define canada as bounds
 var corner1 = L.latLng(0, -180),
 	corner2 = L.latLng(85, 0),
@@ -96,7 +96,8 @@ function addDGGSLayer(options,data,layerName,layerId, group,self){
 
 
 
-		var dggTilesUrl = data.tiles[0] ||data.tileurl.replace("{r}",data.resolution)
+    var dggTilesUrl = data.tiles[0] ||data.tileurl.replace("{r}",data.resolution);
+    dggTilesUrl.replace("http://gesapp02.wlu.ca/",serverAddress);
 		//define canada as bounds
 				var corner1 = L.latLng(0, -180),
 					corner2 = L.latLng(85, 0),
@@ -246,7 +247,7 @@ function addNominalDGGSLayer(options,data,layerName,layerId, group,self,legendOp
 
 
 		var dggTilesUrl = data.tiles[0] ||data.tileurl.replace("{r}",data.resolution)
-
+    dggTilesUrl.replace("http://gesapp02.wlu.ca/",serverAddress);
 
     var dggVectorTileOptions = {
 					bounds: canadaBound,
@@ -323,7 +324,7 @@ function addContinuousDGGSLayer(options,data,layerName,layerId, group,self,legen
 
 
 		var dggTilesUrl = data.tiles[0] ||data.tileurl.replace("{r}",data.resolution)
-
+    dggTilesUrl.replace("http://gesapp02.wlu.ca/",serverAddress);
     var dggVectorTileOptions = {
 					bounds: canadaBound,
 					noWrap: true,
@@ -421,7 +422,7 @@ function addNumericalDGGSLayer(options,data,layerName,layerId, group,self,legend
     var domain =  [data.min, data.max];
 
 		var dggTilesUrl = data.tiles[0] ||data.tileurl.replace("{r}",data.resolution)
-
+    dggTilesUrl.replace("http://gesapp02.wlu.ca/",serverAddress);
 
     var dggVectorTileOptions = {
 					bounds: canadaBound,
