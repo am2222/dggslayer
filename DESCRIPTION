@@ -1,13 +1,24 @@
 Package: dggslayer
-Title: What the Package Does (one line, title case)
+Title: DGGS datamodel rendering engine based on IDEAS
 Version: 0.0.0.9000
-Authors@R: person("Majid", "Hojati", email = "hoja4090@mylaurier.ca", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: DGGS datamodel rendering engine based on IDEAS.
 Depends: R (>= 3.0.0)
-License: What license is it under?
+Authors@R: 
+    c(person(given = "Majid",
+           family = "Hojati",
+           role = c("aut", "cre"),
+           email = "hoja4090@mylaurier.ca",
+           comment = c(ORCID = "0000-0001-7350-0055")))
+License: `use_mit_license()`
 Encoding: UTF-8
 LazyData: true
-NeedsCompilation: no
-Packaged: 2020-02-15 19:03:34 UTC; hoja4090
-Author: Majid Hojati [aut, cre]
-Maintainer: Majid Hojati  <hoja4090@mylaurier.ca>
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports:
+    leafletR,
+    nzdggs
+Suggests:
+    leafletR,
+    nzdggs
+URL: https://github.com/am2222/dggslayer
+BugReports: https://github.com/am2222/dggslayer/issues
