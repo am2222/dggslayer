@@ -3,3 +3,4 @@
 export(addNominalDGGSLayer)
 export(dggslayerOutput)
 export(renderDggslayer)
+export(setServerAddress)
