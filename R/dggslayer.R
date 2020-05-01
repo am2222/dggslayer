@@ -212,13 +212,7 @@ dggsTileOptions <- function(geostat =list(avg=NULL,median=NULL,sum=NULL,max=NULL
     ...))
   opts
 }
-#' <Add Title>
-#'
-#' <Add Description>
-#'
-#' @import htmlwidgets
-#'
-#' @export
+
 dggslayer <- function(message, width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
