@@ -103,7 +103,7 @@ function addDGGSLayer(options, data, layerName, layerId, group, self) {
 
 
   var dggTilesUrl = data.tiles[0] || data.tileurl.replace("{r}", data.resolution);
-  dggTilesUrl.replace("http://gesapp02.wlu.ca/", serverAddress);
+  dggTilesUrl= dggTilesUrl.replace("http://gesapp02.wlu.ca/", serverAddress);
   //define canada as bounds
   var corner1 = L.latLng(0, -180),
     corner2 = L.latLng(85, 0),
@@ -254,7 +254,7 @@ function addNominalDGGSLayer(options, data, layerName, layerId, group, self, leg
 
 
   var dggTilesUrl = data.tiles[0] || data.tileurl.replace("{r}", data.resolution)
-  dggTilesUrl.replace("http://gesapp02.wlu.ca/", serverAddress);
+  dggTilesUrl = dggTilesUrl.replace("http://gesapp02.wlu.ca/", serverAddress);
 
   var dggVectorTileOptions = {
     bounds: canadaBound,
@@ -333,7 +333,7 @@ function addContinuousDGGSLayer(options, data, layerName, layerId, group, self, 
 
 
   var dggTilesUrl = data.tiles[0] || data.tileurl.replace("{r}", data.resolution)
-  dggTilesUrl.replace("http://gesapp02.wlu.ca/", serverAddress);
+  dggTilesUrl= dggTilesUrl.replace("http://gesapp02.wlu.ca/", serverAddress);
   var dggVectorTileOptions = {
     bounds: canadaBound,
     noWrap: true,
@@ -431,7 +431,7 @@ function addNumericalDGGSLayer(options, data, layerName, layerId, group, self, l
   var domain = [data.min, data.max];
 
   var dggTilesUrl = data.tiles[0] || data.tileurl.replace("{r}", data.resolution)
-  dggTilesUrl.replace("http://gesapp02.wlu.ca/", serverAddress);
+  dggTilesUrl= dggTilesUrl.replace("http://gesapp02.wlu.ca/", serverAddress);
 
   var dggVectorTileOptions = {
     bounds: canadaBound,
