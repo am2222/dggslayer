@@ -61,6 +61,34 @@ leafletDGGSProviderDependencies <- function() {
 }
 
 
+
+
+dggsNominalTileOptions <- function(resolution=NULL,classNames=NULL, ...) {
+
+  opts <- filterNULL(list(
+    resolution = resolution,classNames=classNames,
+    ...))
+  opts
+}
+
+dggsContinuousTileOptions <- function(max,min,resolution=NULL,colorScale=NULL, ...) {
+
+  opts <- filterNULL(list(
+    min=min,max=max,
+    resolution = resolution,colorScale=colorScale,
+    ...))
+  opts
+}
+
+dggsNumericalTileOptions <- function(resolution=NULL,colorScale=NULL,geostat =NULL, ...) {
+
+  opts <- filterNULL(list(
+    resolution = resolution,colorScale=colorScale,geostat=geostat,
+    ...))
+  opts
+}
+
+
 #' Adds a DGGS Nominal Type layer.
 #'
 #' @param map a leaflet map
@@ -190,31 +218,6 @@ addDGGSProvider <- function(
   map$dependencies <- c(map$dependencies, leafletDGGSProviderDependencies())
   invokeMethod(map, getMapData(map), "addDGGSProvider",
                layer,tid,filter, layerId, group, options)
-}
-
-dggsNominalTileOptions <- function(resolution=NULL,classNames=NULL, ...) {
-
-  opts <- filterNULL(list(
-    resolution = resolution,classNames=classNames,
-    ...))
-  opts
-}
-
-dggsContinuousTileOptions <- function(max,min,resolution=NULL,colorScale=NULL, ...) {
-
-  opts <- filterNULL(list(
-    min=min,max=max,
-    resolution = resolution,colorScale=colorScale,
-    ...))
-  opts
-}
-
-dggsNumericalTileOptions <- function(resolution=NULL,colorScale=NULL,geostat =NULL, ...) {
-
-  opts <- filterNULL(list(
-    resolution = resolution,colorScale=colorScale,geostat=geostat,
-    ...))
-  opts
 }
 
 dggsTileOptions <- function(geostat =list(avg=NULL,median=NULL,sum=NULL,max=NULL,min=NULL,variance=NULL),resolution=NULL,legend=list(legendType="nominal",addSymbologyControl=T,classificationType="EqInterval",classNumber=NULL,classNames=NULL), colorScale=NULL, ...) {
