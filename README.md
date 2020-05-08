@@ -60,7 +60,7 @@ library(leaflet)
 library(dggslayer)
 m <- leaflet() %>%
   leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%>%
-  addProviderTiles(providers$Thunderforest.MobileAtlas,options = tileOptions(apikey = '5c067b469722440ea2a21bfd5d70e27f'))
+  
 
 nominalLayerOptions <-list(
   classNames=list(

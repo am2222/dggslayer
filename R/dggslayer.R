@@ -172,6 +172,7 @@ addNumericalDGGSLayer  <- function(
 #' setServerAddress("https://spatial.wlu.ca/tileserver/")%>%
 
 setServerAddress <- function(map,server_URL) {
+  map$dependencies <- c(map$dependencies, leafletDGGSProviderDependencies())
   invokeMethod(map, getMapData(map), "setServerAddress",server_URL)
 }
 
