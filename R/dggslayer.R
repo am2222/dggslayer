@@ -146,6 +146,20 @@ addNominalDGGSLayer <- function(
 }
 
 
+#' Title
+#'
+#' @param map
+#' @param layer
+#' @param tid
+#' @param filter
+#' @param layerId
+#' @param group
+#' @param options
+#'
+#' @return
+#' @export
+#'
+#' @examples
 addContinuousDGGSLayer  <- function(
   map,
   layer,
@@ -164,6 +178,20 @@ addContinuousDGGSLayer  <- function(
 
 
 
+#' Title
+#'
+#' @param map
+#' @param layer
+#' @param tid
+#' @param filter
+#' @param layerId
+#' @param group
+#' @param options
+#'
+#' @return
+#' @export
+#'
+#' @examples
 addNumericalDGGSLayer  <- function(
   map,
   layer,
