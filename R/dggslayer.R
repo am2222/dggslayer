@@ -274,3 +274,4 @@ renderDggslayer <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, dggslayerOutput, env, quoted = TRUE)
 }
+
