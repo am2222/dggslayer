@@ -16,9 +16,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0.9000
 Imports:
     leafletR,
-    nzdggs
 Suggests:
     leafletR,
-    nzdggs
-URL: https://github.com/am2222/dggslayer
-BugReports: https://github.com/am2222/dggslayer/issues
+URL: https://github.com/thespatiallabatLaurier/dggslayer
+BugReports: https://github.com/thespatiallabatLaurier/dggslayer/issues

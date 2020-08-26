@@ -23,6 +23,10 @@ addNominalDGGSLayer(
 
 \item{filter}{filter data, can be in a form of key='something', it is mostly an SQL where statement}
 
+\item{layerId}{the layerid same as leaflet layerid}
+
+\item{group}{groupid same as leaflet group id}
+
 \item{options}{use dggsNominalTileOptions() function, the mandetory option for this type of the layer is classNames which is a 3dimentional list in this format c("Lable",value,"HexColor")}
 }
 \value{

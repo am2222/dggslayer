@@ -2,7 +2,7 @@
 % Please edit documentation in R/dggslayer.R
 \name{addContinuousDGGSLayer}
 \alias{addContinuousDGGSLayer}
-\title{Title}
+\title{Adds a DGGS Continious Type layer.}
 \usage{
 addContinuousDGGSLayer(
   map,
@@ -15,11 +15,23 @@ addContinuousDGGSLayer(
 )
 }
 \arguments{
-\item{options}{}
+\item{map}{a leaflet map}
+
+\item{layer}{the dataset name. it is the table name which has a dggid,key,tid,value structure in nz}
+
+\item{tid}{tid value.}
+
+\item{filter}{filter data, can be in a form of key='something', it is mostly an SQL where statement}
+
+\item{layerId}{the layerid same as leaflet layerid}
+
+\item{group}{groupid same as leaflet group id}
+
+\item{options}{use dggsContinuousOptions() function.}
 }
 \value{
 
 }
 \description{
-Title
+Adds a DGGS Continious Type layer.
 }

@@ -177,7 +177,7 @@ LeafletWidget.methods.addDGGSProvider = function (layerName, tid, filter, layerI
     //we need to request data from metadata
     //var tid = tid||null;
     //var filter = filter||null;
-    fetch(serverAddress + "/metadata/" + layerName + "?" + ((tid === null) ? "" : "tid=" + tid) + ((filter === null) ? "" : "&filter=" + filter)) // Call the fetch function passing the url of the API as a parameter
+    fetch(serverAddress + "/metadata/" + layerName + "?" + ((tid === null) ? "" : "tid=" + tid) + ((filter === null) ? "" : "&filter=" + filter.replace("'","").replace("'",""))) // Call the fetch function passing the url of the API as a parameter
       .then((resp) => resp.json()) // Transform the data into json
       .then(function (result) {
         data = result;
@@ -299,7 +299,7 @@ LeafletWidget.methods.addDGGSNominalProvider = function (layerName, tid, filter,
   var self = this;
 
   if (!options["resolution"]) {
-    var metadataurl = serverAddress + "/metadata/" + layerName + "?" + ((tid === null) ? "" : "tid=" + tid) + ((filter === null) ? "" : "&filter=" + filter)
+    var metadataurl = serverAddress + "/metadata/" + layerName + "?" + ((tid === null) ? "" : "tid=" + tid) + ((filter === null) ? "" : "&" + filter.replace("'","").replace("'",""))
     self.spin(true);
     getMetadata(metadataurl).then(result => {
       data = result;
@@ -376,7 +376,7 @@ LeafletWidget.methods.addContinuousDGGSLayer = function (layerName, tid, filter,
   var min = options["min"] || null;
 
   if (!options["resolution"] || !max || !min) {
-    var metadataurl = serverAddress + "/metadata/" + layerName + "?" + ((tid === null) ? "" : "tid=" + tid) + ((filter === null) ? "" : "&filter=" + filter)
+    var metadataurl = serverAddress + "/metadata/" + layerName + "?" + ((tid === null) ? "" : "tid=" + tid) + ((filter === null) ? "" : "&" + filter.replace("'","").replace("'",""))
     self.spin(true);
     getMetadata(metadataurl).then(result => {
       data = result;
@@ -484,7 +484,7 @@ LeafletWidget.methods.addNumericalDGGSLayer = function (layerName, tid, filter, 
   var count = (options["geostat"] && options["geostat"]["count"]) || null;
 
   if (!options["resolution"] || !max || !min || !avg || !median || !variance || !count) {
-    var metadataurl = serverAddress + "/metadata/" + layerName + "?" + ((tid === null) ? "" : "tid=" + tid) + ((filter === null) ? "" : "&filter=" + filter)
+    var metadataurl = serverAddress + "/metadata/" + layerName + "?" + ((tid === null) ? "" : "tid=" + tid) + ((filter === null) ? "" : "&" + filter.replace("'","").replace("'",""))
     self.spin(true);
     getMetadata(metadataurl).then(result => {
       data = result;

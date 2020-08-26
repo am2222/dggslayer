@@ -95,8 +95,8 @@ dggsNumericalTileOptions <- function(resolution=NULL,colorScale=NULL,geostat =NU
 #' @param layer the dataset name. it is the table name which has a dggid,key,tid,value structure in nz
 #' @param tid tid value.
 #' @param filter filter data, can be in a form of key='something', it is mostly an SQL where statement
-#' @param layerId
-#' @param group
+#' @param layerId the layerid same as leaflet layerid
+#' @param group groupid same as leaflet group id
 #' @param options use dggsNominalTileOptions() function, the mandetory option for this type of the layer is classNames which is a 3dimentional list in this format c("Lable",value,"HexColor")
 #'
 #' @return
@@ -146,15 +146,15 @@ addNominalDGGSLayer <- function(
 }
 
 
-#' Title
+#' Adds a DGGS Continious Type layer.
 #'
-#' @param map
-#' @param layer
-#' @param tid
-#' @param filter
-#' @param layerId
-#' @param group
-#' @param options
+#' @param map a leaflet map
+#' @param layer the dataset name. it is the table name which has a dggid,key,tid,value structure in nz
+#' @param tid tid value.
+#' @param filter filter data, can be in a form of key='something', it is mostly an SQL where statement
+#' @param layerId the layerid same as leaflet layerid
+#' @param group groupid same as leaflet group id
+#' @param options use dggsContinuousOptions() function.
 #'
 #' @return
 #' @export
@@ -177,16 +177,15 @@ addContinuousDGGSLayer  <- function(
 
 
 
-
-#' Title
+#' Adds a DGGS Numerical Type layer.
 #'
-#' @param map
-#' @param layer
-#' @param tid
-#' @param filter
-#' @param layerId
-#' @param group
-#' @param options
+#' @param map a leaflet map
+#' @param layer the dataset name. it is the table name which has a dggid,key,tid,value structure in nz
+#' @param tid tid value.
+#' @param filter filter data, can be in a form of key='something', it is mostly an SQL where statement
+#' @param layerId the layerid same as leaflet layerid
+#' @param group groupid same as leaflet group id
+#' @param options use dggsNumericalTileOptions() function
 #'
 #' @return
 #' @export
@@ -217,8 +216,8 @@ addNumericalDGGSLayer  <- function(
 
 #' setServerAddress
 #' Configure Tileserves's Access URL.
-#' @param map
-#' @param server_URL
+#' @param map a leaflet map
+#' @param server_URL URL of the server. This must be set if you are connecting to another server than IDEAS tile server
 #'
 #' @return
 #' @export

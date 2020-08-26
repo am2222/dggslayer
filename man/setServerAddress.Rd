@@ -8,7 +8,9 @@ Configure Tileserves's Access URL.}
 setServerAddress(map, server_URL)
 }
 \arguments{
-\item{server_URL}{}
+\item{map}{a leaflet map}
+
+\item{server_URL}{URL of the server. This must be set if you are connecting to another server than IDEAS tile server}
 }
 \value{
 
