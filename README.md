@@ -11,7 +11,7 @@ Documentations of IDEAS DGGS rendering package render spatial data.
 
 
 
-![Output Plot](Docs/intro.jpg)
+![Output Plot](docs/intro.jpg)
 
 # Documentations
 
@@ -98,7 +98,7 @@ addContinuousDGGSLayer(layer="ANUSPLINE3",tid='1950',filter="key='MAX_TEMP'",gro
 
 
 # Development
-```
+```r
 install.packages("devtools")
 library("devtools")
 devtools::install_github("klutometis/roxygen")
@@ -106,6 +106,4 @@ library(roxygen2)
 setwd("..\")
 #create("Nzdggs")
 devtools::document()
-
-
 ```
