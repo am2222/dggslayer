@@ -11,7 +11,7 @@ Documentations of IDEAS DGGS rendering package render spatial data.
 
 
 
-![Output Plot](docs/intro.jpg)
+![Output Plot](Docs/intro.jpg)
 
 # Documentations
 
