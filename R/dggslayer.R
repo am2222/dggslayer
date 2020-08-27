@@ -89,8 +89,8 @@ dggsNumericalTileOptions <- function(resolution=NULL,colorScale=NULL,geostat =NU
 }
 
 
-#' Adds a DGGS Nominal Type layer.
-#'
+#' addNominalDGGSLayer
+#' @description Adds a DGGS Nominal Type layer.
 #' @param map a leaflet map
 #' @param layer the dataset name. it is the table name which has a dggid,key,tid,value structure in nz
 #' @param tid tid value.
@@ -98,12 +98,15 @@ dggsNumericalTileOptions <- function(resolution=NULL,colorScale=NULL,geostat =NU
 #' @param layerId the layerid same as leaflet layerid
 #' @param group groupid same as leaflet group id
 #' @param options use dggsNominalTileOptions() function, the mandetory option for this type of the layer is classNames which is a 3dimentional list in this format c("Lable",value,"HexColor")
-#'
-#' @return
-#' @export
+#' legend options are
+#' {defaultColor}{Color that shows as default value when a key is not defined. A hex color and default is '#FFF' }
+#' {addSymbologyControl}{Add Symbology controls to the legend, dafault is true}
+#' {classNames}{A list of c("Lable",value,"HexColor"), its mandatory}
+#' {disableOpacityControl}{show/hide opacity control in the legend}
+#' @return leaflerR map object
 #'
 #' @examples
-#' m <- leaflet() %>%
+#'\dontrun{ m <- leaflet() %>%
 #' leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%>%
 #'   addMarkers(lng=-106.34, lat=56.13, popup="Canada")
 #'
@@ -130,7 +133,10 @@ dggsNumericalTileOptions <- function(resolution=NULL,colorScale=NULL,geostat =NU
 #'  ))
 #'
 #'
-#' m%>%addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003-01-01',group="nominalLayer",options = nominalLayerOptions)
+#' m%>%
+#' addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003',filter="key='MOD12Q1'",group="continuousLayer",options = nominalLayerOptions)
+#' }
+
 addNominalDGGSLayer <- function(
   map,
   layer,
@@ -146,20 +152,29 @@ addNominalDGGSLayer <- function(
 }
 
 
-#' Adds a DGGS Continious Type layer.
-#'
+#' addContinuousDGGSLayer
+#' @description Adds a DGGS Continious Type layer.
 #' @param map a leaflet map
 #' @param layer the dataset name. it is the table name which has a dggid,key,tid,value structure in nz
 #' @param tid tid value.
 #' @param filter filter data, can be in a form of key='something', it is mostly an SQL where statement
 #' @param layerId the layerid same as leaflet layerid
 #' @param group groupid same as leaflet group id
-#' @param options use dggsContinuousOptions() function.
-#'
-#' @return
-#' @export
+#' @param options  legend options are
+#' {colorScale}{A colorscale. it can be a vector of hex colors of chromajs colorscales like OrRd,YlGnBu,RdYlBu,Spectral }
+#' {addSymbologyControl}{Add Symbology controls to the legend, dafault is true}
+#' {disableOpacityControl}{show/hide opacity control in the legend}
+#' @return leaflerR map object
 #'
 #' @examples
+#' \dontrun{ m <- leaflet() %>%
+#' leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%>%
+#'   addMarkers(lng=-106.34, lat=56.13, popup="Canada")
+#'   continuousLayerOptions <- list(colorScale=c("OrRd"))
+#'   m %>%
+#'   addContinuousDGGSLayer(layer="ANUSPLINE3",tid='1950',filter="key='MAX_TEMP'",group="nominalLayer",options = continuousLayerOptions)
+#'   }
+
 addContinuousDGGSLayer  <- function(
   map,
   layer,
@@ -177,20 +192,31 @@ addContinuousDGGSLayer  <- function(
 
 
 
-#' Adds a DGGS Numerical Type layer.
-#'
+#' addNumericalDGGSLayer
+#' @description Adds a DGGS Numerical Type layer.
 #' @param map a leaflet map
 #' @param layer the dataset name. it is the table name which has a dggid,key,tid,value structure in nz
 #' @param tid tid value.
 #' @param filter filter data, can be in a form of key='something', it is mostly an SQL where statement
 #' @param layerId the layerid same as leaflet layerid
 #' @param group groupid same as leaflet group id
-#' @param options use dggsNumericalTileOptions() function
-#'
-#' @return
-#' @export
+#' @param options legend options are
+#' {colorScale}{A colorscale. it can be a vector of hex colors of chromajs colorscales like OrRd,YlGnBu,RdYlBu,Spectral }
+#' {addSymbologyControl}{Add Symbology controls to the legend, dafault is true}
+#' {disableOpacityControl}{show/hide opacity control in the legend}
+#' {classNumber}{Number of classes}
+#' {classificationType}{one of the EqInterval,StdDeviation,GeometricProgression,ArithmeticProgression}
+#' @return leaflerR map object
 #'
 #' @examples
+#' \dontrun{ m <- leaflet() %>%
+#' leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%>%
+#'   addMarkers(lng=-106.34, lat=56.13, popup="Canada")
+#'   continuousLayerOptions <- list(colorScale=c("OrRd"))
+#'   m %>%
+#'  addNumericalDGGSLayer(layer="ANUSPLINE3",tid='1950',filter="key='MAX_TEMP'",group="nominalLayer",options = continuousLayerOptions)
+#'  }
+
 addNumericalDGGSLayer  <- function(
   map,
   layer,
@@ -215,16 +241,16 @@ addNumericalDGGSLayer  <- function(
 # }
 
 #' setServerAddress
-#' Configure Tileserves's Access URL.
+#' @description  Configure Tileserves's Access URL.
 #' @param map a leaflet map
 #' @param server_URL URL of the server. This must be set if you are connecting to another server than IDEAS tile server
 #'
-#' @return
-#' @export
+#' @return leaflerR map object
 #'
 #' @examples
-#' m <- leaflet() %>%
-#' setServerAddress("https://spatial.wlu.ca/tileserver/")%>%
+#'\dontrun{ m <- leaflet() %>%
+#' setServerAddress("https://spatial.wlu.ca/tileserver/")
+#' }
 
 setServerAddress <- function(map,server_URL) {
   map$dependencies <- c(map$dependencies, leafletDGGSProviderDependencies())

@@ -1,10 +1,8 @@
 # `setServerAddress`: setServerAddress
- Configure Tileserves's Access URL.
 
 ## Description
 
 
- setServerAddress
  Configure Tileserves's Access URL.
 
 
@@ -25,11 +23,13 @@ Argument      |Description
 ## Value
 
 
- 
+ leaflerR map object
 
 
 ## Examples
 
-```   
+```r
+
 m <- leaflet() %>%
-setServerAddress("https://spatial.wlu.ca/tileserver/")%>% ```   
+setServerAddress(\"https://spatial.wlu.ca/tileserver/")
+```

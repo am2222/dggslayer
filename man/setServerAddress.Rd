@@ -2,8 +2,7 @@
 % Please edit documentation in R/dggslayer.R
 \name{setServerAddress}
 \alias{setServerAddress}
-\title{setServerAddress
-Configure Tileserves's Access URL.}
+\title{setServerAddress}
 \usage{
 setServerAddress(map, server_URL)
 }
@@ -13,13 +12,13 @@ setServerAddress(map, server_URL)
 \item{server_URL}{URL of the server. This must be set if you are connecting to another server than IDEAS tile server}
 }
 \value{
-
+leaflerR map object
 }
 \description{
-setServerAddress
 Configure Tileserves's Access URL.
 }
 \examples{
-m <- leaflet() \%>\%
-setServerAddress("https://spatial.wlu.ca/tileserver/")\%>\%
+\dontrun{ m <- leaflet() \%>\%
+setServerAddress("https://spatial.wlu.ca/tileserver/")
+}
 }

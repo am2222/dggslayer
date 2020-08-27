@@ -227,7 +227,7 @@ LeafletWidget.methods.addDGGSProvider = function (layerName, tid, filter, layerI
 function addNominalDGGSLayer(options, data, layerName, layerId, group, self, legendOptions) {
   var classNames = options["classNames"] || data.legend || null;
   var defaultColor = options["defaultColor"] || "#FFF";
-  var addSymbologyControl = ["addSymbologyControl"] || false;
+  var addSymbologyControl = options["addSymbologyControl"] || false;
 
   if (data.legendType === "nominal" && !classNames && !data.legend) {
     alert("legend type is nominal. so please add classNames variable to the layer ");

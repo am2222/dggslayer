@@ -2,7 +2,7 @@
 % Please edit documentation in R/dggslayer.R
 \name{addNominalDGGSLayer}
 \alias{addNominalDGGSLayer}
-\title{Adds a DGGS Nominal Type layer.}
+\title{addNominalDGGSLayer}
 \usage{
 addNominalDGGSLayer(
   map,
@@ -27,16 +27,21 @@ addNominalDGGSLayer(
 
 \item{group}{groupid same as leaflet group id}
 
-\item{options}{use dggsNominalTileOptions() function, the mandetory option for this type of the layer is classNames which is a 3dimentional list in this format c("Lable",value,"HexColor")}
+\item{options}{use dggsNominalTileOptions() function, the mandetory option for this type of the layer is classNames which is a 3dimentional list in this format c("Lable",value,"HexColor")
+legend options are
+{defaultColor}{Color that shows as default value when a key is not defined. A hex color and default is '#FFF' }
+{addSymbologyControl}{Add Symbology controls to the legend, dafault is true}
+{classNames}{A list of c("Lable",value,"HexColor"), its mandatory}
+{disableOpacityControl}{show/hide opacity control in the legend}}
 }
 \value{
-
+leaflerR map object
 }
 \description{
 Adds a DGGS Nominal Type layer.
 }
 \examples{
-m <- leaflet() \%>\%
+\dontrun{ m <- leaflet() \%>\%
 leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)\%>\%
   addMarkers(lng=-106.34, lat=56.13, popup="Canada")
 
@@ -63,5 +68,7 @@ nominalLayerOptions <-list(
  ))
 
 
-m\%>\%addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003-01-01',group="nominalLayer",options = nominalLayerOptions)
+m\%>\%
+addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003',filter="key='MOD12Q1'",group="continuousLayer",options = nominalLayerOptions)
+}
 }

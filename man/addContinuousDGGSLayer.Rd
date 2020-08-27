@@ -2,7 +2,7 @@
 % Please edit documentation in R/dggslayer.R
 \name{addContinuousDGGSLayer}
 \alias{addContinuousDGGSLayer}
-\title{Adds a DGGS Continious Type layer.}
+\title{addContinuousDGGSLayer}
 \usage{
 addContinuousDGGSLayer(
   map,
@@ -27,11 +27,23 @@ addContinuousDGGSLayer(
 
 \item{group}{groupid same as leaflet group id}
 
-\item{options}{use dggsContinuousOptions() function.}
+\item{options}{legend options are
+{colorScale}{A colorscale. it can be a vector of hex colors of chromajs colorscales like OrRd,YlGnBu,RdYlBu,Spectral }
+{addSymbologyControl}{Add Symbology controls to the legend, dafault is true}
+{disableOpacityControl}{show/hide opacity control in the legend}}
 }
 \value{
-
+leaflerR map object
 }
 \description{
 Adds a DGGS Continious Type layer.
+}
+\examples{
+\dontrun{ m <- leaflet() \%>\%
+leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)\%>\%
+  addMarkers(lng=-106.34, lat=56.13, popup="Canada")
+  continuousLayerOptions <- list(colorScale=c("OrRd"))
+  m \%>\%
+  addContinuousDGGSLayer(layer="ANUSPLINE3",tid='1950',filter="key='MAX_TEMP'",group="nominalLayer",options = continuousLayerOptions)
+  }
 }

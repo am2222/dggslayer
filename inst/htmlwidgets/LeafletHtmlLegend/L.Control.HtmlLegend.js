@@ -3,14 +3,9 @@ L.Control.HtmlLegend = L.Control.extend({
     _activeLayers: 0,
     _alwaysShow: false,
     _legendSymbologies: [
-        ["yellow-008ae5", ['yellow', '008ae5']],
-        ["yellow-red-black", ['yellow', 'red', 'black']],
-        ["yellow-navy", ['yellow', 'navy']],
-        ["red-green", ['#f00', '#0f0']],
         ["RdYlBu", 'RdYlBu'],
         ["OrRd", 'OrRd'],
         ["YlGnBu", 'YlGnBu'],
-        ["Spectral", 'Spectral'],
         ["Spectral", 'Spectral']
     ],
     _classificationMethods: [
@@ -345,7 +340,7 @@ L.Control.HtmlLegend = L.Control.extend({
             const legendItemsContainer = L.DomUtil.create('div', "legendcontainer", div);
             legendItemsContainer.style = " line-height: 2;";
             //FIXME:
-            
+
             legendItemsContainer.innerHTML += this._getNumericalLegendItemHTML(legend.layer);
             //for opacity control
             const sliderContainer = L.DomUtil.create('div', null, div);
@@ -431,7 +426,7 @@ L.Control.HtmlLegend = L.Control.extend({
     _updateLegendItems(layer) {
        switch(layer.options.legend.type){
                   case "numerical":
-                     
+
                      var slider = document.getElementsByClassName('legendcontainer')[0]
                     slider.innerHTML = this._getNumericalLegendItemHTML(layer);
                     break;
@@ -568,13 +563,13 @@ L.Control.HtmlLegend = L.Control.extend({
                         case "ArithmeticProgression":
                             layer.options.legend.geoStatObject.getClassArithmeticProgression(layer.options.legend.classNumber)
                             break;
-                        default: 
+                        default:
                         case "EqInterval":
                             layer.options.legend.geoStatObject.getClassEqInterval(layer.options.legend.classNumber)
                             break;
                     }
-        
-        
+
+
                     layer.options.colorFunction= function(value){
                         return layer.options.legend.geoStatObject.getColor(value);
                     };
@@ -616,12 +611,12 @@ L.Control.HtmlLegend = L.Control.extend({
                         case "ArithmeticProgression":
                             layer.options.legend.geoStatObject.getClassArithmeticProgression(layer.options.legend.classNumber)
                             break;
-                        default: 
+                        default:
                         case "EqInterval":
                             layer.options.legend.geoStatObject.getClassEqInterval(layer.options.legend.classNumber)
                             break;
                     }
-        
+
                     layer.options.colorFunction= function(value){
                         return layer.options.legend.geoStatObject.getColor(value);
                     };
