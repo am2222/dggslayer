@@ -77,4 +77,4 @@ m%>%
 addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003',filter="key='MOD12Q1'",group="continuousLayer",options = nominalLayerOptions)
 ```
 
-![Output Plot](nominalDGGSLayer.jpg)
+![Output Plot](NominalDGGSLayer.jpg)
