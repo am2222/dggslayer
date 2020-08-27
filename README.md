@@ -76,7 +76,7 @@ m%>%
 addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003',filter="key='MOD12Q1'",group="continuousLayer",options = nominalLayerOptions)
 ```
 
-![Output Plot](docs/nominalDGGSLayer.jpg)
+![Output Plot](docs/NominalDGGSLayer.jpg)
 
 
 **addContinuousDGGSLayer**
@@ -98,7 +98,7 @@ addContinuousDGGSLayer(layer="ANUSPLINE3",tid='1950',filter="key='MAX_TEMP'",gro
 
 
 # Development
-```
+```r
 install.packages("devtools")
 library("devtools")
 devtools::install_github("klutometis/roxygen")
@@ -106,6 +106,4 @@ library(roxygen2)
 setwd("..\")
 #create("Nzdggs")
 devtools::document()
-
-
 ```
