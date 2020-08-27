@@ -15,7 +15,7 @@
     
     
       
-        <title>`addNominalDGGSLayer`: Adds a DGGS Nominal Type layer. - IDEAS DGGS R Rendering documentations</title>
+        <title>`addNominalDGGSLayer`: addNominalDGGSLayer - IDEAS DGGS R Rendering documentations</title>
       
     
     
@@ -49,7 +49,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#addnominaldggslayer-adds-a-dggs-nominal-type-layer" class="md-skip">
+        <a href="#addnominaldggslayer-addnominaldggslayer" class="md-skip">
           Skip to content
         </a>
       
@@ -77,7 +77,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              `addNominalDGGSLayer`: Adds a DGGS Nominal Type layer.
+              `addNominalDGGSLayer`: addNominalDGGSLayer
             
           </span>
         </div>
@@ -189,8 +189,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../addContinuousDGGSLayer/" title="`addContinuousDGGSLayer`: Adds a DGGS Continious Type layer." class="md-nav__link">
-      `addContinuousDGGSLayer`: Adds a DGGS Continious Type layer.
+    <a href="../addContinuousDGGSLayer/" title="`addContinuousDGGSLayer`: addContinuousDGGSLayer" class="md-nav__link">
+      `addContinuousDGGSLayer`: addContinuousDGGSLayer
     </a>
   </li>
 
@@ -210,14 +210,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        `addNominalDGGSLayer`: Adds a DGGS Nominal Type layer.
+        `addNominalDGGSLayer`: addNominalDGGSLayer
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="`addNominalDGGSLayer`: Adds a DGGS Nominal Type layer." class="md-nav__link md-nav__link--active">
-      `addNominalDGGSLayer`: Adds a DGGS Nominal Type layer.
+    <a href="./" title="`addNominalDGGSLayer`: addNominalDGGSLayer" class="md-nav__link md-nav__link--active">
+      `addNominalDGGSLayer`: addNominalDGGSLayer
     </a>
     
       
@@ -283,8 +283,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../addNumericalDGGSLayer/" title="`addNumericalDGGSLayer`: Adds a DGGS Numerical Type layer." class="md-nav__link">
-      `addNumericalDGGSLayer`: Adds a DGGS Numerical Type layer.
+    <a href="../addNumericalDGGSLayer/" title="`addNumericalDGGSLayer`: addNumericalDGGSLayer" class="md-nav__link">
+      `addNumericalDGGSLayer`: addNumericalDGGSLayer
     </a>
   </li>
 
@@ -393,7 +393,7 @@
                   
                 
                 
-                <h1 id="addnominaldggslayer-adds-a-dggs-nominal-type-layer"><code>addNominalDGGSLayer</code>: Adds a DGGS Nominal Type layer.</h1>
+                <h1 id="addnominaldggslayer-addnominaldggslayer"><code>addNominalDGGSLayer</code>: addNominalDGGSLayer</h1>
 <h2 id="description">Description</h2>
 <p>Adds a DGGS Nominal Type layer.</p>
 <h2 id="usage">Usage</h2>
@@ -443,37 +443,60 @@
 </tr>
 <tr>
 <td><code>options</code></td>
-<td>use dggsNominalTileOptions() function, the mandetory option for this type of the layer is classNames which is a 3dimentional list in this format c("Lable",value,"HexColor")</td>
+<td>The mandetory option for this type of the layer is classNames which is a 3dimentional list in this format c("Lable",value,"HexColor") legend options are</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>defaultColor</strong> Color that shows as default value when a key is not defined. A hex color and default is '#FFF'</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>addSymbologyControl</strong> Add Symbology controls to the legend, dafault is true</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>classNames</strong> A list of c("Lable",value,"HexColor"), its mandatory</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>disableOpacityControl</strong> show/hide opacity control in the legend</td>
 </tr>
 </tbody>
 </table>
 <h2 id="value">Value</h2>
+<p>leaflerR map object</p>
 <h2 id="examples">Examples</h2>
-<p>``` <br />
-m &lt;- leaflet() %&gt;%
-leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%&gt;%
-  addMarkers(lng=-106.34, lat=56.13, popup="Canada")</p>
-<p>nominalLayerOptions &lt;-list(
-  classNames=list(
-    c("Evergreen Needleleaf Forests",1,"#006300"),
-    c("Evergreen Broadleaf Forests", 2,"#006300"),
-    c("Deciduous Needleleaf Forests", 3,"#148c3d"),
-    c("Deciduous Broadleaf Forests", 4,"#1eab05"),
-    c("Mixed Forests", 5,"#5c752b"),
-    c("Closed Shrublands", 6,"#bad48f"),
-    c("Open Shrublands", 7,"#b39e2b"),
-    c("Woody Savannas", 8,"#b38a33"),
-    c("Savannas", 9,"#9c7554"),
-    c("Grasslands", 10,"#e1cf8a"),
-    c("Permanent Wetlands", 11,"#6ba38a"),
-    c("Croplands", 12,"#e6ae66"),
-    c("Urban and Built-up Lands", 13,"#dc2126"),
-    c("Cropland/Natural Vegetation Mosaics", 14,"#949c70"),
-    c("Permanent Snow and Ice", 15,"#fffaff"),
-    c("Barren", 16,"#a8abae"),
-    c("Water Bodies", 17,"#4c70a3")</p>
-<p>))</p>
-<p>m%&gt;%addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003-01-01',group="nominalLayer",options = nominalLayerOptions) ```   </p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">leaflet</span><span class="p">()</span> <span class="o">%&gt;%</span>
+<span class="n">leaflet</span><span class="o">::</span><span class="nf">setView</span><span class="p">(</span><span class="n">lng</span><span class="o">=</span><span class="m">-106.34</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="m">56.13</span><span class="p">,</span><span class="n">zoom</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span><span class="o">%&gt;%</span>
+<span class="nf">addMarkers</span><span class="p">(</span><span class="n">lng</span><span class="o">=</span><span class="m">-106.34</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="m">56.13</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="s">&quot;Canada&quot;</span><span class="p">)</span>
+<span class="n">nominalLayerOptions</span> <span class="o">&lt;-</span><span class="nf">list</span><span class="p">(</span>
+   <span class="n">classNames</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Evergreen Needleleaf Forests&quot;</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="s">&quot;#006300&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Evergreen Broadleaf Forests&quot;</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span><span class="s">&quot;#006300&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Deciduous Needleleaf Forests&quot;</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span><span class="s">&quot;#148c3d&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Deciduous Broadleaf Forests&quot;</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span><span class="s">&quot;#1eab05&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Mixed Forests&quot;</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span><span class="s">&quot;#5c752b&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Closed Shrublands&quot;</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span><span class="s">&quot;#bad48f&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Open Shrublands&quot;</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span><span class="s">&quot;#b39e2b&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Woody Savannas&quot;</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span><span class="s">&quot;#b38a33&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Savannas&quot;</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span><span class="s">&quot;#9c7554&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Grasslands&quot;</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span><span class="s">&quot;#e1cf8a&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Permanent Wetlands&quot;</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span><span class="s">&quot;#6ba38a&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Croplands&quot;</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span><span class="s">&quot;#e6ae66&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Urban and Built-up Lands&quot;</span><span class="p">,</span> <span class="m">13</span><span class="p">,</span><span class="s">&quot;#dc2126&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Cropland/Natural Vegetation Mosaics&quot;</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span><span class="s">&quot;#949c70&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Permanent Snow and Ice&quot;</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span><span class="s">&quot;#fffaff&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Barren&quot;</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span><span class="s">&quot;#a8abae&quot;</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Water Bodies&quot;</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span><span class="s">&quot;#4c70a3&quot;</span><span class="p">)</span>
+
+  <span class="p">))</span>
+
+
+<span class="n">m</span><span class="o">%&gt;%</span>
+<span class="nf">addNominalDGGSLayer</span><span class="p">(</span><span class="n">layer</span><span class="o">=</span><span class="s">&quot;MOD12Q1DATA&quot;</span><span class="p">,</span><span class="n">tid</span><span class="o">=</span><span class="s">&#39;2003&#39;</span><span class="p">,</span><span class="n">filter</span><span class="o">=</span><span class="s">&quot;key=&#39;MOD12Q1&#39;&quot;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s">&quot;continuousLayer&quot;</span><span class="p">,</span><span class="n">options</span> <span class="o">=</span> <span class="n">nominalLayerOptions</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="Output Plot" src="nominalDGGSLayer.jpg" /></p>
                 
                   
                     
@@ -505,7 +528,7 @@ leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%&gt;%
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../addContinuousDGGSLayer/" title="`addContinuousDGGSLayer`: Adds a DGGS Continious Type layer." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../addContinuousDGGSLayer/" title="`addContinuousDGGSLayer`: addContinuousDGGSLayer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -514,19 +537,19 @@ leaflet::setView(lng=-106.34, lat=56.13,zoom = 2)%&gt;%
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                `addContinuousDGGSLayer`: Adds a DGGS Continious Type layer.
+                `addContinuousDGGSLayer`: addContinuousDGGSLayer
               </div>
             </div>
           </a>
         
         
-          <a href="../addNumericalDGGSLayer/" title="`addNumericalDGGSLayer`: Adds a DGGS Numerical Type layer." class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../addNumericalDGGSLayer/" title="`addNumericalDGGSLayer`: addNumericalDGGSLayer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                `addNumericalDGGSLayer`: Adds a DGGS Numerical Type layer.
+                `addNumericalDGGSLayer`: addNumericalDGGSLayer
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
