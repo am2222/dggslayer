@@ -11,7 +11,7 @@ Documentations of IDEAS DGGS rendering package render spatial data.
 
 
 
-![Output Plot](intro.jpg)
+![Output Plot](docs/intro.jpg)
 
 # Documentations
 
@@ -40,7 +40,7 @@ continuousLayerOptions <- list(colorScale=c("OrRd"))
 m %>%
 addNumericalDGGSLayer(layer="ANUSPLINE3",tid='1950',filter="key='MAX_TEMP'",group="nominalLayer",options = continuousLayerOptions)
 ```
-  ![Output Plot](NumericalDGGSLayer.jpg)
+  ![Output Plot](docs/NumericalDGGSLayer.jpg)
 
 
 **addNominalDGGSLayer**
@@ -76,7 +76,7 @@ m%>%
 addNominalDGGSLayer(layer="MOD12Q1DATA",tid='2003',filter="key='MOD12Q1'",group="continuousLayer",options = nominalLayerOptions)
 ```
 
-![Output Plot](nominalDGGSLayer.jpg)
+![Output Plot](docs/nominalDGGSLayer.jpg)
 
 
 **addContinuousDGGSLayer**
@@ -91,13 +91,9 @@ m %>%
 addContinuousDGGSLayer(layer="ANUSPLINE3",tid='1950',filter="key='MAX_TEMP'",group="nominalLayer",options = continuousLayerOptions)
 ```
 
- ![Output Plot](ContinuousDGGS.jpg)
+ ![Output Plot](docs/ContinuousDGGS.jpg)
 
 
-
-
-
-```
 
 
 
